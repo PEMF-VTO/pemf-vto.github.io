@@ -39,6 +39,49 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <style>
+    /* 视频容器 */
+    .video-container {
+      position: relative;
+      margin: 20px 0;
+    }
+  
+    /* 视频控件 */
+    .video-controls {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0,0,0,0.5);
+      padding: 8px;
+      border-radius: 4px;
+    }
+  
+    /* 进度条样式 */
+    .progress-bar {
+      flex-grow: 1;
+      height: 4px;
+      background: #555;
+      cursor: pointer;
+    }
+  
+    .progress {
+      height: 100%;
+      background: #00d1b2;
+      transition: width 0.1s linear;
+    }
+  
+    .time-display {
+      color: white;
+      font-size: 0.9em;
+      min-width: 100px;
+      text-align: right;
+    }
+  </style>
 </head>
 <body>
 
@@ -135,6 +178,15 @@
                       <i class="fas fa-file-pdf"></i>
                   </span>
                   <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="./static/pemf-vto_videos/PEMF_VTO_sup.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Supp</span>
                 </a>
               </span>
               <span class="link-block">
@@ -431,26 +483,70 @@
 
 </section>
 
-<section class="section">
-  <div class="container is-max-desktop">
-  <!-- Paper video. -->
-  <div class="columns is-centered has-text-centered">
-    <div class="column is-four-fifths">
-      <h2 class="title is-3">Demo</h2>
-      <video id="demo" autoplay muted loop playsinline height="100%">
-        <source src="./static/pemf-vto_videos/demo.mp4"
-        type="video/mp4">
-      </video>   
+<!-- Paper video -->
+<div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+    <h2 class="title is-3">Video Results in Paper</h2>
+    <div class="video-container">
+      <video id="ours_demo" playsinline height="100%">
+        <source src="./static/pemf-vto_videos/ours_demo.mp4" type="video/mp4">
+      </video>
+      
+      <div class="video-controls">
+        <button id="ours_playPauseBtn" class="button is-small">▶</button>
+        <div id="ours_progressBar" class="progress-bar">
+          <div id="ours_progress" class="progress"></div>
+        </div>
+        <span id="ours_timeDisplay" class="time-display">00:00 / 00:00</span>
+      </div>
     </div>
+    <script src="./static/js/script.js"></script>
   </div>
-  <p>
-    To better exhibit video virtual try-on results, we make a video demo to intuitively reflect the performance of our method.
-    It contains all video results in the article and provides more visualization results of ViViD and TikTok datasets.
-    For more detailed information, please watch the video demo provided in the supplementary materials.
-  </p> 
-  <!--/ Paper video. -->
+</div>
+
+<!-- More Video Try-on Results of ViViD -->
+<div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+    <h2 class="title is-3">More Video Try-on Results of ViViD</h2>
+    <div class="video-container">
+      <video id="vivid_demo" playsinline height="100%">
+        <source src="./static/pemf-vto_videos/vivid_demo.mp4" type="video/mp4">
+      </video>
+      
+      <div class="video-controls">
+        <button id="vivid_playPauseBtn" class="button is-small">▶</button>
+        <div id="vivid_progressBar" class="progress-bar">
+          <div id="vivid_progress" class="progress"></div>
+        </div>
+        <span id="vivid_timeDisplay" class="time-display">00:00 / 00:00</span>
+      </div>
+    </div>
+    <script src="./static/js/script.js"></script>
   </div>
-</section>
+</div>
+
+<!-- More Video Try-on Results of TikTok -->
+<div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+    <h2 class="title is-3">More Video Try-on Results of TikTok</h2>
+    <div class="video-container">
+      <video id="tiktok_demo" playsinline height="100%">
+        <source src="./static/pemf-vto_videos/tiktok_demo.mp4" type="video/mp4">
+      </video>
+      
+      <div class="video-controls">
+        <button id="tiktok_playPauseBtn" class="button is-small">▶</button>
+        <div id="tiktok_progressBar" class="progress-bar">
+          <div id="tiktok_progress" class="progress"></div>
+        </div>
+        <span id="tiktok_timeDisplay" class="time-display">00:00 / 00:00</span>
+      </div>
+    </div>
+    <script src="./static/js/script.js"></script>
+  </div>
+</div>
+
+
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
